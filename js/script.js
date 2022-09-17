@@ -9,4 +9,22 @@ const getImage = aync function (){
     console.log(images);
 }
 
-getImage();
+const selectRandomImage = function (images) {
+  const randomIndex = Math.floor(Math.random() * images.length);
+  // console.log(randomIndex);
+  const randomImage = images[randomIndex];
+  // console.log(randomImage);
+  displayImage(randomImage);
+};
+
+const displayImage = function (randomImage) {
+  const author = randomImage.author;
+  const imageAddress = randomImage.download_url;
+  authorSpan.innerText = author;
+  img.src = imageAddress;
+  imgDiv.classList.remove("hide");
+};
+
+button.addEventListener("click", function () {
+  getImage();
+});
